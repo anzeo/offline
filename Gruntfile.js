@@ -511,7 +511,8 @@ module.exports = function (grunt) {
     this.async();
   });
 
-  grunt.registerTask('serve', function (target) {
+  grunt.registerTask('serve', function () {
+    var target = grunt.option('target');
     if (target === 'dist') {
       return grunt.task.run(['build', 'env:all', 'env:prod', 'express:prod', 'wait', 'open', 'express-keepalive']);
     }
